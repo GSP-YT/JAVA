@@ -1,30 +1,39 @@
-import java.util.*;
+import java.util.Scanner;
 public class DecToBinary{
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Decimal Number : ");
 		int n = sc.nextInt();
 		sc.close();
-		int binary = 0;
-		int rem;
-		int  rev = 1;
+		int bit,z=n;
+		for(bit=0;z>0;bit++){
+			z = z/2;
+		}
+		if(bit == 0){
+			bit++;
+		}
+		int binary[] = new int[bit];
 		System.out.println("Decimal = " + n);	
-		while(n != 0 && n != 1){
-			if(n%2==0){
-				binary = binary * 10 + 0;
+		for(int i = bit-1 ; i>=0 ; i--){
+			if(n==1){
+				binary[i] = 1;
+				break;
+			}
+			else if(n==0){
+				binary[i] = 0;
+				break;
+			}
+			else if(n%2==0){
+				binary[i] = 0;
 			}
 			else if(n%2 == 1){
-				binary = binary * 10 + 1;
+				binary[i] = 1;
 			}
-			n = n / 2;
-			System.out.println("N = " + n);	
+			n = n / 2;	
 		}
-		//while(binary != 0){
-		//	rem = binary % 10;
-		//	rev = rev * 10 + rem;
-		//	binary = binary / 10;
-		//}
-		binary = rev;
-		System.out.println("Binary = " + binary);	
+		System.out.print("Binary = ");
+		for(int i = 0; i<bit ; i++){
+			System.out.print(binary[i]);
+		}
 	}
 }
