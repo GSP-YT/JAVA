@@ -33,19 +33,9 @@ class merg2ArrayShort{
 					array3[j] = array2[j];
 				}
 			}
-			
-			int z = array[i];
-			if(array[i]== -1){
-				continue;
-			}
-			int count = 0;
-			for(int j = 0; j < n; j++){
-				if(z == array[j]){
-					count++;
-					array[j] = -1;
-				}
-			}
-			System.out.printf("Element %d Frequency = %d \n",z,count);
+		}
+		for(int j = 0; j < size; j++){
+			System.out.print(array3[j] + "\t");
 		}
 		
 	}
